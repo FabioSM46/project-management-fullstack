@@ -4,6 +4,8 @@ import { HomePage } from "./pages/HomePage";
 import { ProjectListPage } from "./pages/ProjectListPage";
 import { Routes, Route } from "react-router-dom";
 import { ProjectDetailsPage } from "./pages/ProjectDetailsPage";
+import { EditProjectPage } from "./pages/EditProjectPage";
+
 function App() {
   return (
     <div className="App">
@@ -13,6 +15,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<ProjectListPage />} />
         <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
+        <Route path="/projects/edit/:projectId" element={<EditProjectPage />} />
       </Routes>
     </div>
   );
