@@ -5,6 +5,7 @@ import { ProjectListPage } from "./pages/ProjectListPage";
 import { Routes, Route } from "react-router-dom";
 import { ProjectDetailsPage } from "./pages/ProjectDetailsPage";
 import { EditProjectPage } from "./pages/EditProjectPage";
+import { EditTaskPage } from "./pages/EditTaskPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/projects" element={<ProjectListPage />} />
         <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
         <Route path="/projects/edit/:projectId" element={<EditProjectPage />} />
+        <Route path="/tasks/edit/:taskId" element={<EditTaskPage />} />
       </Routes>
     </div>
   );
