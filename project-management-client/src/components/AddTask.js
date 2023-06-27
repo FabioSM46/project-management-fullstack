@@ -11,8 +11,13 @@ export const AddTask = (props) => {
     e.preventDefault();
     const { projectId } = props;
     const requestBody = { title, description, projectId };
+    // Get the token from the localStorage
+    const storedToken = localStorage.getItem("authToken");
+
     axios
-      .post(`${API_URL}/api/tasks`, requestBody)
+      .post(`${API_URL}/api/tasks`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
         setTitle("");
         setDescription("");
