@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { AddProject } from "../components/AddProject";
 import { ProjectCard } from "../components/ProjectCard";
+import projectsService from "../services/projects.service";
 const API_URL = "http://localhost:5005";
 
 export const ProjectListPage = () => {
@@ -12,17 +13,15 @@ export const ProjectListPage = () => {
     const storedToken = localStorage.getItem("authToken");
 
     // Send the token through the request "Authorization" Headers
-    axios
-      .get(`${API_URL}/api/projects`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+    projectsService
+      .getAllProjects()
       .then((response) => setProjects(response.data))
       .catch((error) => console.log(error));
   };
 
   // We set this effect will run only once, after the initial render
   // by setting the empty dependency array - []
-  
+
   useEffect(() => {
     getAllProjects();
   }, []);
