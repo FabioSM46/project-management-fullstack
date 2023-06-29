@@ -21,7 +21,7 @@ export const LoginPage = (props) => {
     const requestBody = { email, password };
 
     authService
-      .login()
+      .login(requestBody)
       .then((response) => {
         console.log("JWT token", response.data.authToken);
 
